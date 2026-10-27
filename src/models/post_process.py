@@ -59,13 +59,4 @@ class TrafficOccupancyEvaluator:
         return float(tau), class_counts
 
 
-if __name__ == "__main__":
-    # Sanity check with dummy prediction mask (H=256, W=256)
-    dummy_mask = np.random.choice([0, 1, 2, 10], size=(256, 256), p=[0.7, 0.1, 0.1, 0.1])
-    
-    # Example: road_id = 1, vehicle classes = [2, 10]
-    evaluator = TrafficOccupancyEvaluator(road_id=1, vehicle_classes=[2, 10], dilation_iterations=5)
-    tau, counts = evaluator.compute_occupancy(dummy_mask)
-    
-    print(f"Filtered Occupancy Percentage (tau): {tau:.2f}%")
-    print(f"Vehicle Pixel Counts per Class: {counts}")
+
